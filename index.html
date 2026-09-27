@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Black Anchor Tattoo Co.</title>
+<title>KASITU Tattoo Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rye&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -132,6 +132,73 @@
   footer{ border-top:1px solid var(--line); padding: 40px 0; }
   footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.86rem; color: rgba(237,234,227,0.6); }
   footer .brand{ font-size:1rem; color: var(--bone); }
+/* ================================
+   KASITU WEBS FOOTER
+================================ */
+
+.site-footer {
+    width: 100%;
+    padding: 28px 20px;
+    background: #111;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer p {
+    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+.crafted-by {
+    margin-top: 10px !important;
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.crafted-by span {
+    color: #e8b4b8;
+    font-size: 15px;
+    margin: 0 3px;
+}
+
+.crafted-by a {
+    color: #e8b4b8;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.crafted-by a:hover {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(232, 180, 184, 0.5);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .site-footer {
+        padding: 24px 15px;
+        margin-top: 40px;
+    }
+
+    .site-footer p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .crafted-by {
+        font-size: 13px !important;
+    }
+}
+  
 </style>
 </head>
 <body>
@@ -324,9 +391,22 @@
 
 <footer>
   <div class="wrap">
-    <div class="brand">BLACK ANCHOR</div>
+    <div class="brand">KASITU</div>
     <div>88 Ironworks Row, Downtown · (079) 438-0103</div>
   </div>
+</footer>
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+        <p>© 2026 KASITU. All Rights Reserved.</p>
+
+        <p class="crafted-by">
+            Crafted by
+            <a href="https://kasituwebs.co.za/" target="_blank" rel="noopener noreferrer">
+                KASITU Webs
+            </a>
+        </p>
+    </div>
 </footer>
 
 </body>
