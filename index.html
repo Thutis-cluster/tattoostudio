@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Anchor Tattoo Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0D0D0D;
+    --bone:#EDEAE3;
+    --red:#9E1B1B;
+    --steel:#5C5955;
+    --line: rgba(237,234,227,0.14);
+    --display: 'Rye', Georgia, serif;
+    --sans: 'Space Grotesk', -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family: var(--sans);
+    color: var(--bone);
+    background: var(--ink);
+    line-height: 1.6;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width: 1100px; margin:0 auto; padding: 0 24px; }
+  img{ max-width:100%; display:block; }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position: sticky; top:0; z-index:20;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+  .brand{ font-family: var(--display); font-size: 1.4rem; letter-spacing:0.02em; }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{ text-decoration:none; font-size:0.9rem; color: var(--bone); }
+  .nav-links a:hover{ color: var(--red); }
+  .nav-cta{
+    background: var(--red); color: var(--bone);
+    padding: 10px 20px; text-decoration:none; font-weight:600; font-size:0.88rem;
+  }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero (halftone texture) ---------- */
+  .hero{
+    position:relative;
+    padding: 100px 0 90px;
+    text-align:center;
+    background-image: radial-gradient(circle, rgba(237,234,227,0.16) 1px, transparent 1.4px);
+    background-size: 14px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .kicker{ font-size:0.82rem; letter-spacing:0.06em; color: var(--red); font-weight:600; margin-bottom:18px; }
+  .hero h1{
+    font-family: var(--display);
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
+    line-height:1.1;
+    max-width: 16ch; margin: 0 auto;
+  }
+  .hero p{ margin: 24px auto 0; max-width: 46ch; color: rgba(237,234,227,0.72); font-size:1.08rem; }
+  .hero-ctas{ margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary{ background: var(--red); color: var(--bone); padding:14px 28px; text-decoration:none; font-weight:700; font-size:0.92rem; }
+  .btn-secondary{ padding:14px 28px; text-decoration:none; font-weight:700; font-size:0.92rem; border: 1px solid var(--bone); color: var(--bone); }
+
+  /* ---------- Section shell ---------- */
+  section{ padding: 90px 0; }
+  .section-head{ margin-bottom: 44px; }
+  .kicker{ font-size:0.82rem; letter-spacing:0.06em; color: var(--red); font-weight:600; margin-bottom:10px; }
+  h2{ font-family: var(--display); font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight:400; }
+
+  /* ---------- Flash grid ---------- */
+  .flash-grid{ display:grid; grid-template-columns: repeat(5,1fr); gap:1px; background: var(--line); border:1px solid var(--line); }
+  .flash-item{ background: var(--ink); padding: 28px 16px 20px; text-align:center; }
+  .flash-item svg{ width:56px; height:56px; margin:0 auto 14px; }
+  .flash-item span{ font-size:0.82rem; color: rgba(237,234,227,0.75); }
+  @media (max-width:860px){ .flash-grid{ grid-template-columns: repeat(2,1fr); } }
+
+  /* ---------- Process (numbered — genuinely sequential) ---------- */
+  .process{ background: #141414; }
+  .steps{ display:grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top:1px solid var(--line); }
+  .step{ padding: 32px 22px; border-right:1px solid var(--line); }
+  .step:last-child{ border-right:none; }
+  .step .num{ font-family: var(--display); font-size:1.6rem; color: var(--red); }
+  .step h3{ font-size:1.05rem; margin-top:10px; font-weight:600; }
+  .step p{ font-size:0.9rem; color: rgba(237,234,227,0.65); margin-top:8px; }
+  @media (max-width:800px){ .steps{ grid-template-columns:1fr 1fr; } .step{ border-bottom:1px solid var(--line); } }
+  @media (max-width:480px){ .steps{ grid-template-columns:1fr; } }
+
+  /* ---------- Artists ---------- */
+  .artists{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border:1px solid var(--line); }
+  .artist{ background: var(--ink); padding: 32px 24px; }
+  .artist .initial{
+    width:56px; height:56px; border:2px solid var(--red); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--display); font-size:1.3rem; margin-bottom:16px;
+  }
+  .artist h3{ font-size:1.1rem; font-weight:600; }
+  .artist .style{ font-size:0.82rem; color: var(--red); margin-top:4px; }
+  .artist p{ font-size:0.9rem; color: rgba(237,234,227,0.65); margin-top:10px; }
+  @media (max-width:800px){ .artists{ grid-template-columns:1fr; } }
+
+  /* ---------- Policy strip ---------- */
+  .policy{ background: var(--red); }
+  .policy .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; padding: 34px 24px; }
+  .policy-block b{ display:block; font-size:0.95rem; margin-bottom:4px; }
+  .policy-block span{ font-size:0.86rem; color: rgba(237,234,227,0.85); }
+
+  /* ---------- Consultation form ---------- */
+  .booking .wrap{ max-width: 640px; }
+  form{ display:grid; gap:16px; margin-top:28px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  label{ display:block; font-size:0.8rem; font-weight:600; margin-bottom:6px; color: rgba(237,234,227,0.85); }
+  input, select, textarea{
+    width:100%; padding:12px 14px; font-family: var(--sans); font-size:0.95rem;
+    border:1px solid var(--line); background: #161616; color: var(--bone);
+  }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--red); outline-offset:1px; }
+  .submit-btn{
+    justify-self:start; background: var(--red); color: var(--bone);
+    border:none; padding:14px 30px; font-weight:700; font-size:0.95rem; cursor:pointer;
+  }
+  .submit-btn:hover{ background:#7f1414; }
+  .form-note{ font-size:0.8rem; color: rgba(237,234,227,0.5); }
+  @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer{ border-top:1px solid var(--line); padding: 40px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.86rem; color: rgba(237,234,227,0.6); }
+  footer .brand{ font-size:1rem; color: var(--bone); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">BLACK ANCHOR</div>
+    <ul class="nav-links">
+      <li><a href="#flash">Flash</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#artists">Artists</a></li>
+      <li><a href="#book">Consult</a></li>
+    </ul>
+    <a class="nav-cta" href="#book">Book consult</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">CUSTOM WORK · WALK-IN FLASH · EST. 2016</div>
+    <h1>Permanent by design.</h1>
+    <p>Custom tattoos and walk-in flash from a studio that treats every piece like it's going to outlive the trend that inspired it.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#book">Book a consultation</a>
+      <a class="btn-secondary" href="#flash">View flash sheet</a>
+    </div>
+  </div>
+</section>
+
+<section id="flash">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">FLASH SHEET</div>
+      <h2>Walk in, pick a piece, sit down.</h2>
+    </div>
+    <div class="flash-grid">
+      <div class="flash-item">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#EDEAE3" stroke-width="1.4">
+          <circle cx="32" cy="26" r="16"/>
+          <circle cx="25" cy="23" r="3"/><circle cx="39" cy="23" r="3"/>
+          <path d="M24 34c4 4 12 4 16 0"/>
+          <path d="M20 42l-4 14M44 42l4 14M28 44v14M36 44v14"/>
+        </svg>
+        <span>Skull</span>
+      </div>
+      <div class="flash-item">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#EDEAE3" stroke-width="1.4">
+          <path d="M32 8v40M32 8l-8 8M32 8l8 8"/>
+          <path d="M20 24h24l-4 20a8 8 0 01-16 0z"/>
+          <path d="M26 16h12"/>
+        </svg>
+        <span>Dagger</span>
+      </div>
+      <div class="flash-item">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#EDEAE3" stroke-width="1.4">
+          <path d="M32 20c-6-10-22-8-22 2 0 8 10 10 22 22 12-12 22-14 22-22 0-10-16-12-22-2z"/>
+          <path d="M20 42l-6 8M44 42l6 8"/>
+        </svg>
+        <span>Swallow</span>
+      </div>
+      <div class="flash-item">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#EDEAE3" stroke-width="1.4">
+          <circle cx="32" cy="22" r="10"/>
+          <path d="M32 12c-4 4-4 16 0 20M32 12c4 4 4 16 0 20"/>
+          <path d="M32 32v22M24 44l8-4 8 4"/>
+        </svg>
+        <span>Rose</span>
+      </div>
+      <div class="flash-item">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#EDEAE3" stroke-width="1.4">
+          <path d="M14 40c6-14 18-6 22-16 3-8-4-12-10-10"/>
+          <path d="M40 12c8 2 12 12 6 20-5 6-14 4-16 12-2 6 4 10 10 8"/>
+          <circle cx="15" cy="41" r="2" fill="#EDEAE3"/>
+        </svg>
+        <span>Snake</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">HOW IT WORKS</div>
+      <h2>From idea to healed piece</h2>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="num">01</div>
+      <h3>Consultation</h3>
+      <p>Bring references, we talk placement, size, and what'll actually age well.</p>
+    </div>
+    <div class="step">
+      <div class="num">02</div>
+      <h3>Design &amp; deposit</h3>
+      <p>A $50 deposit locks your slot and goes toward your final session.</p>
+    </div>
+    <div class="step">
+      <div class="num">03</div>
+      <h3>The session</h3>
+      <p>Sized to the piece — small flash in an hour, full sleeves booked in stages.</p>
+    </div>
+    <div class="step">
+      <div class="num">04</div>
+      <h3>Aftercare</h3>
+      <p>We walk you through healing before you leave, and check in at two weeks.</p>
+    </div>
+  </div>
+</section>
+
+<section id="artists">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">RESIDENT ARTISTS</div>
+      <h2>Four chairs, four specialties</h2>
+    </div>
+  </div>
+  <div class="artists">
+    <div class="artist">
+      <div class="initial">V</div>
+      <h3>Vince Ortega</h3>
+      <div class="style">American traditional &amp; blackwork</div>
+      <p>Bold lines, saturated fills, pieces built to stay sharp for decades.</p>
+    </div>
+    <div class="artist">
+      <div class="initial">M</div>
+      <h3>Mei Castillo</h3>
+      <div class="style">Fine line &amp; botanical</div>
+      <p>Delicate single-needle work — florals, script, and minimalist pieces.</p>
+    </div>
+    <div class="artist">
+      <div class="initial">J</div>
+      <h3>Jonas Reyes</h3>
+      <div class="style">Neo-traditional &amp; color realism</div>
+      <p>Heavy color work and large-scale custom pieces, sleeves a specialty.</p>
+    </div>
+  </div>
+</section>
+
+<div class="policy">
+  <div class="wrap">
+    <div class="policy-block"><b>Age policy</b><span>18+, valid ID required, no exceptions</span></div>
+    <div class="policy-block"><b>Deposits</b><span>Non-refundable, applied to your session</span></div>
+    <div class="policy-block"><b>Hours</b><span>Tue–Sun, 12pm–8pm · Closed Mondays</span></div>
+  </div>
+</div>
+
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">BOOK A CONSULT</div>
+      <h2>Tell us what you're thinking</h2>
+      <p style="margin-top:12px; color:rgba(237,234,227,0.65); max-width:44ch;">Custom pieces start with a free consult. Walk-ins are welcome for flash, but book ahead for anything larger.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Thanks — replace this with your real booking handler.');">
+      <div class="form-row">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" required>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="artist">Preferred artist</label>
+          <select id="artist">
+            <option>No preference</option>
+            <option>Vince Ortega</option>
+            <option>Mei Castillo</option>
+            <option>Jonas Reyes</option>
+          </select>
+        </div>
+        <div>
+          <label for="placement">Placement</label>
+          <input id="placement" type="text" placeholder="e.g. forearm">
+        </div>
+      </div>
+      <div>
+        <label for="details">Tell us about the piece</label>
+        <textarea id="details" rows="4" placeholder="Size, style, references, first tattoo or not"></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Request consultation</button>
+      <p class="form-note">This form doesn't send email on its own — see the notes below for how to connect it in WordPress.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">BLACK ANCHOR</div>
+    <div>88 Ironworks Row, Downtown · (555) 022-6614</div>
+  </div>
+</footer>
+
+</body>
+</html>
